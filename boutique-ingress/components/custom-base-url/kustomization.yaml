@@ -16,3 +16,10 @@ patches:
     - op: replace
       path: /spec/template/spec/containers/0/readinessProbe/httpGet/path
       value: /shop/_healthz
+- target:
+    kind: Deployment
+    name: loadgenerator
+  patch: |-
+    - op: replace
+      path: /spec/template/spec/containers/0/env/0/value
+      value: "frontend:80/shop"
